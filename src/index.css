@@ -6,6 +6,8 @@
 body {
   margin: 0;
   font-family: 'Arial' sans-serif;
+  background-color: #b5c0c7;
+  color: #232323;
 }
 
 @tailwind base;
