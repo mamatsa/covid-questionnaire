@@ -3,11 +3,27 @@
   src: url(./assets/fonts/bpg_arial_2009.ttf);
 }
 
+@font-face {
+  font-family: 'TBC';
+  src: url(./assets/fonts/TBCContracticaCAPS-Bold.ttf);
+}
+
 body {
   margin: 0;
   font-family: 'Arial' sans-serif;
   background-color: #b5c0c7;
   color: #232323;
+}
+
+.start-text {
+  color: #b5c0c7;
+  text-shadow: -1px -1px 0 #232323, 1px -1px 0 #232323, -1px 1px 0 #232323,
+    1px 1px 0 #232323;
+  display: none;
+}
+
+.start-text-wrapper:hover .start-text {
+  display: block;
 }
 
 @tailwind base;
