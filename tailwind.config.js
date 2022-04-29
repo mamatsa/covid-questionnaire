@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       colors: {
         'dark-brown': '#232323',
+        'main-background': '#eaeaea;',
       },
     },
     fontFamily: {
