@@ -13,7 +13,7 @@ const QuestionnaireWrapper = (props) => {
           <img src={RedberrySVG} alt='Redberry' />
           <p className=' text-4xl font-Anonymous'>{page}/4</p>
         </div>
-        <div className=' w-full h-0.5 bg-dark-brown my-6'></div>
+        <div className=' w-full h-0.5 bg-dark-brown my-6 mb-11'></div>
       </div>
       <div className='flex'>
         <div className=' w-1/2'>{props.children}</div>
