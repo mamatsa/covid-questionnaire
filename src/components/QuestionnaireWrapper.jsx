@@ -1,6 +1,7 @@
 import RedberrySVG from 'assets/svgs/Redberry.svg';
 import { useLocation } from 'react-router-dom';
 import { useMemo } from 'react';
+import Navigation from './Navigation';
 
 const QuestionnaireWrapper = (props) => {
   let location = useLocation();
@@ -17,8 +18,11 @@ const QuestionnaireWrapper = (props) => {
       </div>
       <div className='flex'>
         <div className=' w-1/2'>{props.children}</div>
-        <img src={props.image} alt='' className=' w-1/2 h-min' />
+        <div className=' w-1/2'>
+          <img src={props.image} alt='' className='h-min' />
+        </div>
       </div>
+      <Navigation page={page} />
     </main>
   );
 };
