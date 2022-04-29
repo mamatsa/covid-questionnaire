@@ -1,10 +1,15 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'dark-brown': '#232323',
+      },
+    },
     fontFamily: {
       Arial: ['Arial', 'sans-serif'],
       TBC: ['TBC', 'sans-serif'],
+      Anonymous: ['Anonymous Pro', 'sans-serif'],
     },
   },
   plugins: [],

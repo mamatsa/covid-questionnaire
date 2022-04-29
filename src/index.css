@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap');
+
 @font-face {
   font-family: 'Arial';
   src: url(./assets/fonts/bpg_arial_2009.ttf);
@@ -11,7 +13,7 @@
 body {
   margin: 0;
   font-family: 'Arial' sans-serif;
-  background-color: #b5c0c7;
+  background-color: #eaeaea;
   color: #232323;
 }
 
