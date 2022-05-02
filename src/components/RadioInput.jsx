@@ -4,10 +4,10 @@ const RadioInput = (props) => {
   return (
     <div>
       <label className=' text-[22px]'>{props.topLabel}</label>
-      <div className=' mt-3'>
+      <div className=' mt-4'>
         {props.inputs.map((input) => {
           return (
-            <div className='flex items-center' key={input.key}>
+            <div className='flex items-center mt-1' key={input.key}>
               <input
                 id={input.id}
                 type='radio'
