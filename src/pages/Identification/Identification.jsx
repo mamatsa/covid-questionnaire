@@ -1,55 +1,78 @@
 import QuestionnaireWrapper from 'components/QuestionnaireWrapper';
 import People from 'assets/images/People.png';
-import React, { useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
 import Input from './components/Input.jsx';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 const Identification = () => {
-  const questionnaireCtx = useContext(QuestionnaireContext);
-  const nameInputRef = useRef();
-  const lastNameInputRef = useRef();
-  const mailInputRef = useRef();
-  const submitHandler = (e) => {
-    e.preventDefault();
-    questionnaireCtx.addAnswer('name', nameInputRef.current.value);
-    questionnaireCtx.addAnswer('lastName', lastNameInputRef.current.value);
-    questionnaireCtx.addAnswer('mail', mailInputRef.current.value);
+  const { addAnswer } = useContext(QuestionnaireContext);
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      firstName: localStorage.getItem('firstName'),
+      lastName: localStorage.getItem('lastName'),
+      email: localStorage.getItem('email'),
+    },
+    shouldUnregister: true,
+  });
+
+  const emailBelongsToRedberry = (email) => {
+    return email.trim().slice(-12) === '@redberry.ge';
   };
-  console.log(questionnaireCtx.answers);
 
   return (
-    <QuestionnaireWrapper image={People}>
-      <form action='' onSubmit={(e) => submitHandler(e)} className=' space-y-8'>
+    <QuestionnaireWrapper image={People} form={'identification-form'}>
+      <form
+        action='/new_url'
+        method='POST'
+        id='identification-form'
+        onSubmit={handleSubmit((data) => {
+          addAnswer('firstName', data.firstName);
+          addAnswer('lastName', data.lastName);
+          addAnswer('email', data.email);
+          navigate('/questionnaire/2');
+          console.log(data);
+        })}
+        className=' space-y-8'
+      >
         <Input
+          id='firstName'
           label='სახელი*'
-          ref={nameInputRef}
-          input={{
-            defaultValue: questionnaireCtx.answers.name,
-            type: 'text',
-            minLength: '2',
-            maxLength: '15',
-            required: '1',
-          }}
+          name='firstName'
+          register={register}
+          errors={errors}
+          type='text'
+          required={1}
+          minLength={2}
         />
         <Input
+          id='lastName'
           label='გვარი*'
-          ref={lastNameInputRef}
-          input={{
-            defaultValue: questionnaireCtx.answers.lastName,
-            type: 'text',
-            minLength: '2',
-            maxLength: '15',
-            required: '1',
-          }}
+          name='lastName'
+          register={register}
+          errors={errors}
+          type='text'
+          required={1}
+          minLength={2}
         />
         <Input
+          id='email'
           label='მეილი*'
-          ref={mailInputRef}
-          input={{
-            defaultValue: questionnaireCtx.answers.mail,
-            type: 'email',
-            minLength: '2',
-            required: '1',
+          name='email'
+          register={register}
+          errors={errors}
+          type='text'
+          required={1}
+          customValidation={{
+            func: emailBelongsToRedberry,
+            message:
+              'გთხოვთ მიუთითეთ Redberry-ის მეილი (yourname.@redberry.ge)',
           }}
         />
       </form>
