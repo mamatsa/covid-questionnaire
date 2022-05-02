@@ -2,7 +2,7 @@ import React from 'react';
 import ArrowRight from 'assets/svgs/ArrowRight.svg';
 import ArrowLeft from 'assets/svgs/ArrowLeft.svg';
 
-const Navigation = ({ page, form }) => {
+const Navigation = ({ page, form, formIsValid = true }) => {
   return (
     <div className='flex justify-center space-x-32'>
       <a
@@ -15,7 +15,9 @@ const Navigation = ({ page, form }) => {
       <button
         type='submit'
         form={form}
-        className={page === 4 ? 'opacity-0' : ''}
+        className={`${page === 4 ? 'opacity-0 pointer-events-none' : ''} ${
+          formIsValid ? '' : ' opacity-50 pointer-events-none'
+        }`}
       >
         <img src={ArrowRight} alt='' />
       </button>

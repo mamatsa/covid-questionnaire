@@ -2,7 +2,7 @@ import QuestionnaireWrapper from 'components/QuestionnaireWrapper';
 import People from 'assets/images/People.png';
 import React, { useContext } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
-import Input from './components/Input.jsx';
+import Input from 'components/Input.jsx';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 

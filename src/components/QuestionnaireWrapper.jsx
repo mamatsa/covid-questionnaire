@@ -22,7 +22,11 @@ const QuestionnaireWrapper = (props) => {
           <img src={props.image} alt='' className='h-min' />
         </div>
       </div>
-      <Navigation page={page} form={props.form} />
+      <Navigation
+        page={page}
+        form={props.form}
+        formIsValid={props.formIsValid}
+      />
     </main>
   );
 };
