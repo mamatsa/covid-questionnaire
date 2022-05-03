@@ -72,25 +72,26 @@ const Vaccination = () => {
               {
                 id: 'vaccinationStage1',
                 inputLabel: 'პირველი დოზა და დარეგისტრირებული ვარ მეორეზე',
-                value: 'firstDoseAndRegisteredOnSecond',
+                value: 'first_dosage_and_registered_on_the_second',
                 key: 1,
               },
               {
                 id: 'vaccinationStage2',
                 inputLabel: 'სრულად აცრილი ვარ',
-                value: 'fullyVaccinated',
+                value: 'fully_vaccinated',
                 key: 2,
               },
               {
                 id: 'vaccinationStage3',
                 inputLabel: 'პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე',
-                value: 'firstDoseAndNotRegisteredOnSecond',
+                value: 'first_dose_and_not_registered_on_the_second',
                 key: 3,
               },
             ]}
           />
         )}
-        {watch('vaccinationStage') === 'firstDoseAndNotRegisteredOnSecond' && (
+        {watch('vaccinationStage') ===
+          'first_dose_and_not_registered_on_the_second' && (
           <div className=' ml-7 text-xl'>
             <p>რომ არ გადადო,</p>
             <p>ბარემ ახლავე დარეგისტრირდი</p>

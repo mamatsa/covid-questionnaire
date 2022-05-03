@@ -6,6 +6,7 @@ module.exports = {
         'dark-brown': '#232323',
         'main-background': '#eaeaea;',
         'error-red': '#f15524',
+        'thanks-background': '#232323',
       },
     },
     fontFamily: {
