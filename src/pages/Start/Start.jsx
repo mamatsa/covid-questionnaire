@@ -2,8 +2,12 @@ import CompanyLogo from 'assets/svgs/Logo.svg';
 
 const Start = () => {
   return (
-    <main className='min-h-screen flex flex-col justify-center items-center  gap-24 '>
-      <img src={CompanyLogo} alt='logo' />
+    <main className='min-h-screen flex flex-col justify-center items-center  gap-24 overflow-hidden'>
+      <img
+        src={CompanyLogo}
+        alt='logo'
+        className='animate-[shrink_0.5s_ease-in-out]'
+      />
       <a
         className='text-3xl font-semibold text-center font-TBC relative start-text-wrapper'
         href='/questionnaire/1'
