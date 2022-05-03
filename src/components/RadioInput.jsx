@@ -12,8 +12,13 @@ const RadioInput = (props) => {
                 id={input.id}
                 type='radio'
                 value={input.value}
-                className=' mr-3'
-                {...props.register(props.name)}
+                className=' mr-3 scale-125'
+                {...props.register(props.name, {
+                  required: {
+                    value: props.required,
+                    message: 'რომელიმე პასუხი უნდა აირჩიო',
+                  },
+                })}
               />
               <label htmlFor={input.id} className=' text-xl'>
                 {input.inputLabel}
@@ -22,6 +27,11 @@ const RadioInput = (props) => {
           );
         })}
       </div>
+      {props.errors && (
+        <p className=' text-error-red mt-1 ml-2'>
+          {props.errors[props.name]?.message}
+        </p>
+      )}
     </div>
   );
 };

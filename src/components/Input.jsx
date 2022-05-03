@@ -9,6 +9,7 @@ const Input = (props) => {
       <input
         id={props.id}
         type={props.type}
+        rows={props.rows}
         placeholder={props.placeholder}
         {...props.register(props.name, {
           required: {
@@ -23,11 +24,13 @@ const Input = (props) => {
         })}
         className='px-5 py-3 w-5/6 bg-main-background mt-4 border-dark-brown border-[1px] text-[18px] outline-none'
       />
-      <p className=' text-error-red mt-1 ml-2'>
-        {props.errors[props.name]?.message}
-        {props.errors[props.name]?.type === 'validate' &&
-          props.customValidation.message}
-      </p>
+      {props.errors && (
+        <p className=' text-error-red mt-1 ml-2'>
+          {props.errors[props.name]?.message}
+          {props.errors[props.name]?.type === 'validate' &&
+            props.customValidation.message}
+        </p>
+      )}
     </div>
   );
 };
