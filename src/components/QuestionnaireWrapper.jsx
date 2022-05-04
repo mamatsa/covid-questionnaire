@@ -8,8 +8,8 @@ const QuestionnaireWrapper = (props) => {
   const page = useMemo(() => +location.pathname.split('/').pop(), [location]);
 
   return (
-    <>
-      <main className='flex flex-col justify-center px-16 py-16 md:px-32 md:py-20 xl:px-48 relative max-h-[90vh]'>
+    <div className=' min-h-screen relative'>
+      <main className='flex flex-col justify-center px-16 py-16 md:px-32 md:py-20 xl:px-48 relative'>
         <div>
           <div className=' flex justify-between'>
             <img src={RedberrySVG} alt='Redberry' />
@@ -18,9 +18,9 @@ const QuestionnaireWrapper = (props) => {
           <div className=' w-full h-0.5 bg-dark-brown my-6 mb-11'></div>
         </div>
         <div className='flex'>
-          <div className=' w-1/2'>{props.children}</div>
-          <div className=' w-1/2'>
-            <img src={props.image} alt='' className='h-min max-w-[80%]' />
+          <div className=' md:w-1/2'>{props.children}</div>
+          <div className='hidden md:block md:w-1/2'>
+            <img src={props.image} alt='' className=' none h-min max-w-[80%]' />
           </div>
         </div>
       </main>
@@ -29,7 +29,7 @@ const QuestionnaireWrapper = (props) => {
         form={props.form}
         formIsValid={props.formIsValid}
       />
-    </>
+    </div>
   );
 };
 

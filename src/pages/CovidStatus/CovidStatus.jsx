@@ -58,7 +58,7 @@ const CovidStatus = () => {
       >
         <RadioInput
           name='hadCovid'
-          topLabel='გაქვს გადატანილი კოვიდ-19?'
+          topLabel='გაქვს გადატანილი კოვიდ-19?*'
           register={register}
           inputs={[
             {
@@ -84,7 +84,7 @@ const CovidStatus = () => {
         {watch('hadCovid') === 'yes' && (
           <RadioInput
             name='hadAntibodyTest'
-            topLabel='ანტისხეულების ტესტი გაქვს გაკეთებული?'
+            topLabel='ანტისხეულების ტესტი გაქვს გაკეთებული?*'
             register={register}
             inputs={[
               {

@@ -39,7 +39,7 @@ const Identification = () => {
           navigate('/questionnaire/2');
           console.log(data);
         })}
-        className=' space-y-8'
+        className=' space-y-4'
       >
         <Input
           id='firstName'

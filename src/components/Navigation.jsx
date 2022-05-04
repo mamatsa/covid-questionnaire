@@ -4,7 +4,7 @@ import ArrowLeft from 'assets/svgs/ArrowLeft.svg';
 
 const Navigation = ({ page, form, formIsValid = true }) => {
   return (
-    <div className='flex justify-center space-x-32 '>
+    <div className='flex justify-center space-x-32 absolute bottom-14 right-1/2 translate-x-1/2'>
       <a
         href={`/questionnaire/${page - 1}`}
         className={page === 1 ? 'opacity-0 pointer-events-none' : ''}
