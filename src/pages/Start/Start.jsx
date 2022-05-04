@@ -1,4 +1,5 @@
 import CompanyLogo from 'assets/svgs/Logo.svg';
+import { Link } from 'react-router-dom';
 
 const Start = () => {
   return (
@@ -8,9 +9,9 @@ const Start = () => {
         alt='logo'
         className='animate-[shrink_0.5s_ease-in-out]'
       />
-      <a
+      <Link
         className='text-3xl font-semibold text-center font-TBC relative start-text-wrapper'
-        href='/questionnaire/1'
+        to='/questionnaire/1'
       >
         <div className='relative z-10'>
           <p>კითხვარის</p>
@@ -20,7 +21,7 @@ const Start = () => {
           <p>კითხვარის</p>
           <p>დაწყება</p>
         </div>
-      </a>
+      </Link>
     </main>
   );
 };
