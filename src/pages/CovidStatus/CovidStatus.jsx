@@ -8,7 +8,7 @@ import React, { useContext } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
 
 const CovidStatus = () => {
-  const { addAnswer } = useContext(QuestionnaireContext);
+  const { answers, addAnswer } = useContext(QuestionnaireContext);
 
   const navigate = useNavigate();
   const {
@@ -18,11 +18,11 @@ const CovidStatus = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      hadCovid: localStorage.getItem('hadCovid'),
-      hadAntibodyTest: localStorage.getItem('hadAntibodyTest'),
-      covidDate: localStorage.getItem('covidDate'),
-      antibodyTestDate: localStorage.getItem('antibodyTestDate'),
-      antibodyNumber: localStorage.getItem('antibodyNumber'),
+      hadCovid: answers.hadCovid,
+      hadAntibodyTest: answers.hadAntibodyTest,
+      covidDate: answers.covidDate,
+      antibodyTestDate: answers.antibodyTestDate,
+      antibodyNumber: answers.antibodyNumber,
     },
     shouldUnregister: true,
   });

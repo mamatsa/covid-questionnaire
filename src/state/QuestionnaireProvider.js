@@ -1,11 +1,9 @@
 import QuestionnaireContext from './questionnaire-context';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const CartProvider = (props) => {
-  const [answers, setAnswers] = useState({});
-  useEffect(() => {
-    setAnswers(localStorage);
-  }, []);
+  const [answers, setAnswers] = useState(localStorage);
+  console.log(answers);
 
   const addAnswerHandler = (key, value) => {
     localStorage.setItem(key, value);
@@ -14,9 +12,15 @@ const CartProvider = (props) => {
     });
   };
 
+  const resetContext = () => {
+    setAnswers({});
+    localStorage.clear();
+  };
+
   const questionnaireContext = {
     answers: answers,
     addAnswer: addAnswerHandler,
+    resetContext: resetContext,
   };
 
   return (

@@ -9,7 +9,7 @@ import Textarea from './components/Textarea';
 
 const CovidPolitics = () => {
   const navigate = useNavigate();
-  const { addAnswer } = useContext(QuestionnaireContext);
+  const { answers, addAnswer } = useContext(QuestionnaireContext);
 
   const {
     register,
@@ -17,11 +17,10 @@ const CovidPolitics = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      nonFormalMeetings: localStorage.getItem('nonFormalMeetings'),
-      numberOfDaysFromOffice: localStorage.getItem('numberOfDaysFromOffice'),
-      whatAboutMeetingsInLive:
-        localStorage.getItem('whatAboutMeetingsInLive') || '',
-      tellYourOpinion: localStorage.getItem('tellYourOpinion') || '',
+      nonFormalMeetings: answers.nonFormalMeetings,
+      numberOfDaysFromOffice: answers.numberOfDaysFromOffice,
+      whatAboutMeetingsInLive: answers.whatAboutMeetingsInLive,
+      tellYourOpinion: answers.tellYourOpinion,
     },
     shouldUnregister: true,
   });

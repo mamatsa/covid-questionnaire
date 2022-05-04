@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 const Identification = () => {
-  const { addAnswer } = useContext(QuestionnaireContext);
+  const { answers, addAnswer } = useContext(QuestionnaireContext);
   const navigate = useNavigate();
   const {
     register,
@@ -15,9 +15,9 @@ const Identification = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      firstName: localStorage.getItem('firstName'),
-      lastName: localStorage.getItem('lastName'),
-      email: localStorage.getItem('email'),
+      firstName: answers.firstName,
+      lastName: answers.lastName,
+      email: answers.email,
     },
     shouldUnregister: true,
   });

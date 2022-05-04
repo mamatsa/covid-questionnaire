@@ -8,13 +8,13 @@ import QuestionnaireContext from 'state/questionnaire-context';
 
 const Vaccination = () => {
   const navigate = useNavigate();
-  const { addAnswer } = useContext(QuestionnaireContext);
+  const { answers, addAnswer } = useContext(QuestionnaireContext);
 
   const { register, handleSubmit, watch } = useForm({
     defaultValues: {
-      hadVaccine: localStorage.getItem('hadVaccine'),
-      vaccinationStage: localStorage.getItem('vaccinationStage'),
-      waitWhat: localStorage.getItem('waitWhat'),
+      hadVaccine: answers.hadVaccine,
+      vaccinationStage: answers.vaccinationStage,
+      waitWhat: answers.waitWhat,
     },
     shouldUnregister: true,
   });
