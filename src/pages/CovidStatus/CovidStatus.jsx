@@ -20,7 +20,7 @@ const CovidStatus = () => {
     defaultValues: {
       hadCovid: answers.hadCovid,
       hadAntibodyTest: answers.hadAntibodyTest,
-      covidDate: answers.covidDate,
+      covidSicknessDate: answers.covidSicknessDate,
       antibodyTestDate: answers.antibodyTestDate,
       antibodyNumber: answers.antibodyNumber,
     },
@@ -49,7 +49,7 @@ const CovidStatus = () => {
         onSubmit={handleSubmit((data) => {
           addAnswer('hadCovid', data.hadCovid);
           addAnswer('hadAntibodyTest', data.hadAntibodyTest);
-          addAnswer('covidDate', data.covidDate);
+          addAnswer('covidSicknessDate', data.covidSicknessDate);
           addAnswer('antibodyTestDate', data.antibodyTestDate);
           addAnswer('antibodyNumber', data.antibodyNumber);
           navigate('/questionnaire/3');
@@ -76,7 +76,7 @@ const CovidStatus = () => {
             {
               id: 'hadCovid3',
               inputLabel: 'ახლა მაქვს',
-              value: 'currently_have',
+              value: 'have_right_now',
               key: 3,
             },
           ]}
@@ -105,9 +105,9 @@ const CovidStatus = () => {
         {watch('hadAntibodyTest') === 'no' && (
           <Input
             label='მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*'
-            id='covidDate'
+            id='covidSicknessDate'
             type='date'
-            name='covidDate'
+            name='covidSicknessDate'
             register={register}
             errors={errors}
             required={1}

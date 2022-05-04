@@ -1,9 +1,9 @@
 import React from 'react';
 
-const CartContext = React.createContext({
+const QuestionnaireContext = React.createContext({
   answers: {},
   addAnswer: (key, value) => {},
   resetContext: () => {},
 });
 
-export default CartContext;
+export default QuestionnaireContext;

@@ -14,14 +14,14 @@ const Vaccination = () => {
     defaultValues: {
       hadVaccine: answers.hadVaccine,
       vaccinationStage: answers.vaccinationStage,
-      waitWhat: answers.waitWhat,
+      iAmWaiting: answers.iAmWaiting,
     },
     shouldUnregister: true,
   });
 
   // Checks if user can continue
   let formIsValid = false;
-  if (watch('vaccinationStage') || watch('waitWhat')) {
+  if (watch('vaccinationStage') || watch('iAmWaiting')) {
     formIsValid = true;
   }
 
@@ -38,8 +38,7 @@ const Vaccination = () => {
         onSubmit={handleSubmit((data) => {
           addAnswer('hadVaccine', data.hadVaccine);
           addAnswer('vaccinationStage', data.vaccinationStage);
-          addAnswer('waitWhat', data.waitWhat);
-          console.log(data);
+          addAnswer('iAmWaiting', data.iAmWaiting);
           navigate('/questionnaire/4');
         })}
         className=' space-y-10'
@@ -84,14 +83,14 @@ const Vaccination = () => {
               {
                 id: 'vaccinationStage3',
                 inputLabel: 'პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე',
-                value: 'first_dose_and_not_registered_on_the_second',
+                value: 'first_dosage_and_not_registered_yet',
                 key: 3,
               },
             ]}
           />
         )}
         {watch('vaccinationStage') ===
-          'first_dose_and_not_registered_on_the_second' && (
+          'first_dosage_and_not_registered_yet' && (
           <div className=' ml-7 text-xl'>
             <p>რომ არ გადადო,</p>
             <p>ბარემ ახლავე დარეგისტრირდი</p>
@@ -102,32 +101,32 @@ const Vaccination = () => {
         )}
         {watch('hadVaccine') === 'no' && (
           <RadioInput
-            name='waitWhat'
+            name='iAmWaiting'
             topLabel='რას ელოდები?*'
             register={register}
             inputs={[
               {
-                id: 'waitWhat1',
+                id: 'waiting',
                 inputLabel: 'დარეგისტრირებული ვარ და ველოდები რიცხვს',
-                value: 'waitDate',
+                value: 'registered_and_waiting',
                 key: 1,
               },
               {
-                id: 'waitWhat2',
+                id: 'waiting2',
                 inputLabel: 'არ ვგეგმავ',
-                value: 'notPlanToVaccinate',
+                value: 'not_planning',
                 key: 2,
               },
               {
-                id: 'waitWhat3',
+                id: 'waiting3',
                 inputLabel: 'გადატანილი მაქვს და ვგეგმავ აცრას',
-                value: 'planningToVaccinate',
+                value: 'had_covid_and_planning_to_be_vaccinated',
                 key: 3,
               },
             ]}
           />
         )}
-        {watch('waitWhat') === 'planningToVaccinate' && (
+        {watch('iAmWaiting') === 'had_covid_and_planning_to_be_vaccinated' && (
           <div className=' ml-7 text-xl'>
             <p>
               ახალი პროტოკოლით კოვიდის გადატანიდან 1 თვის შემდეგ შეგიძლიათ

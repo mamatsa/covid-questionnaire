@@ -69,13 +69,13 @@ const CovidPolitics = () => {
               {
                 id: 'nonFormalMeetings3',
                 inputLabel: 'ორ კვირაში ერთხელ',
-                value: 'once_in_two_weeks',
+                value: 'once_in_a_two_weeks',
                 key: 3,
               },
               {
                 id: 'nonFormalMeetings4',
                 inputLabel: 'თვეში ერთხელ',
-                value: 'once_a_month',
+                value: 'once_in_a_month',
                 key: 4,
               },
             ]}
