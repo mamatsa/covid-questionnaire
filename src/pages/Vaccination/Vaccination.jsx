@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import RadioInput from 'components/RadioInput';
 import React, { useContext } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
+import Suggestion from './components/Suggestion';
 
 const Vaccination = () => {
   const navigate = useNavigate();
@@ -91,13 +92,7 @@ const Vaccination = () => {
         )}
         {watch('vaccinationStage') ===
           'first_dosage_and_not_registered_yet' && (
-          <div className=' ml-7 text-xl'>
-            <p>რომ არ გადადო,</p>
-            <p>ბარემ ახლავე დარეგისტრირდი</p>
-            <a href='https://booking.moh.gov.ge/' className=' text-blue-500'>
-              https://booking.moh.gov.ge/
-            </a>
-          </div>
+          <Suggestion text='რომ არ გადადო, ბარემ ახლავე დარეგისტრირდი' />
         )}
         {watch('hadVaccine') === 'no' && (
           <RadioInput
@@ -127,16 +122,10 @@ const Vaccination = () => {
           />
         )}
         {watch('iAmWaiting') === 'had_covid_and_planning_to_be_vaccinated' && (
-          <div className=' ml-7 text-xl'>
-            <p>
-              ახალი პროტოკოლით კოვიდის გადატანიდან 1 თვის შემდეგ შეგიძლიათ
-              ვაქცინის გაკეთება.
-            </p>
-            <p className='mt-3'>&#x1F447; რეგისტრაციის ბმული</p>
-            <a href='https://booking.moh.gov.ge/' className=' text-blue-500'>
-              https://booking.moh.gov.ge/
-            </a>
-          </div>
+          <Suggestion
+            text='ახალი პროტოკოლით კოვიდის გადატანიდან 1 თვის შემდეგ შეგიძლიათ ვაქცინის
+          გაკეთება.'
+          />
         )}
       </form>
     </QuestionnaireWrapper>
