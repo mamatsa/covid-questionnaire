@@ -13,22 +13,18 @@ const Thanks = () => {
         last_name: answers.lastName,
         email: answers.email,
         had_covid: answers.hadCovid,
+        had_antibody_test: true,
         had_vaccine: answers.hadVaccine === 'yes' ? true : false,
         non_formal_meetings: answers.nonFormalMeetings,
         number_of_days_from_office: +answers.numberOfDaysFromOffice,
       };
 
       if (answers.hadCovid === 'yes') {
-        const isTested = answers.hadAntibodyTest === 'yes' ? true : false;
-        data.had_antibody_test = isTested;
-
-        if (isTested) {
+        if (answers.hadAntibodyTest === 'yes') {
           data.antibodies = {
             test_date: answers.antibodyTestDate,
             number: +answers.antibodyNumber,
           };
-        } else {
-          data.covid_sickness_date = answers.covidSicknessDate;
         }
       }
 
