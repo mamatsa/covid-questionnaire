@@ -2,11 +2,15 @@ import ThanksStarUp from 'assets/svgs/ThanksStarUp.svg';
 import ThanksStarDown from 'assets/svgs/ThanksStarDown.svg';
 import { useContext, useEffect } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
+import { useNavigate } from 'react-router-dom';
 
 const Thanks = () => {
   const { answers, resetContext } = useContext(QuestionnaireContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (localStorage.getItem('progress') < 4) navigate('/');
+
     const sendData = async () => {
       const data = {
         first_name: answers.firstName,
@@ -54,7 +58,7 @@ const Thanks = () => {
     };
     sendData();
     resetContext();
-  }, [answers, resetContext]);
+  }, [answers, resetContext, navigate]);
 
   return (
     <main className='flex flex-col justify-center items-center bg-thanks-background h-screen'>

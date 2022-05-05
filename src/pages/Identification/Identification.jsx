@@ -36,8 +36,8 @@ const Identification = () => {
           addAnswer('firstName', data.firstName);
           addAnswer('lastName', data.lastName);
           addAnswer('email', data.email);
+          localStorage.setItem('progress', 1);
           navigate('/questionnaire/2');
-          console.log(data);
         })}
         className=' space-y-4'
       >

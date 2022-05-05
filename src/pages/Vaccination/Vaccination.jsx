@@ -3,12 +3,17 @@ import Doctor from 'assets/images/Doctor.png';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import RadioInput from 'components/RadioInput';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
 import Suggestion from './components/Suggestion';
 
 const Vaccination = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('progress') < 2) navigate('/');
+  }, [navigate]);
+
   const { answers, addAnswer } = useContext(QuestionnaireContext);
 
   const { register, handleSubmit, watch } = useForm({
@@ -40,6 +45,7 @@ const Vaccination = () => {
           addAnswer('hadVaccine', data.hadVaccine);
           addAnswer('vaccinationStage', data.vaccinationStage);
           addAnswer('iAmWaiting', data.iAmWaiting);
+          localStorage.setItem('progress', 3);
           navigate('/questionnaire/4');
         })}
         className=' space-y-10'
