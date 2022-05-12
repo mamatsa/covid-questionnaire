@@ -16,6 +16,7 @@ const Navigation = ({ page, form, formIsValid = true }) => {
       <button
         type='submit'
         form={form}
+        id='navigation-next'
         className={`${page === 4 ? 'opacity-0 pointer-events-none' : ''} ${
           formIsValid ? '' : ' opacity-50 pointer-events-none'
         }`}

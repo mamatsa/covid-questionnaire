@@ -18,7 +18,7 @@ const Input = (props) => {
           },
           minLength: {
             value: props.minLength,
-            message: `უნდა შეიყვანოთ მინიმუმ ${props.minLength}  სიმბოლო`,
+            message: `უნდა შეიყვანოთ მინიმუმ ${props.minLength} სიმბოლო`,
           },
           validate: props.customValidation?.func,
         })}
