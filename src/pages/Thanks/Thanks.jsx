@@ -9,8 +9,6 @@ const Thanks = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem('progress') < 4) navigate('/');
-
     const sendData = async () => {
       const data = {
         first_name: answers.firstName,
@@ -23,20 +21,16 @@ const Thanks = () => {
         number_of_days_from_office: +answers.numberOfDaysFromOffice,
       };
 
-      if (answers.hadCovid === 'yes') {
-        if (answers.hadAntibodyTest === 'yes') {
-          data.antibodies = {
-            test_date: answers.antibodyTestDate,
-            number: +answers.antibodyNumber,
-          };
-        }
+      if (answers.hadAntibodyTest === 'yes') {
+        data.antibodies = {
+          test_date: answers.antibodyTestDate,
+          number: +answers.antibodyNumber,
+        };
       }
 
-      if (answers.hadVaccine === 'yes') {
-        data.vaccination_stage = answers.vaccinationStage;
-      } else {
-        data.i_am_waiting = answers.iAmWaiting;
-      }
+      answers.hadVaccine === 'yes'
+        ? (data.vaccination_stage = answers.vaccinationStage)
+        : (data.i_am_waiting = answers.iAmWaiting);
 
       if (answers.whatAboutMeetingsInLive) {
         data.what_about_meetings_in_live = answers.whatAboutMeetingsInLive;
@@ -46,7 +40,7 @@ const Thanks = () => {
         data.tell_us_your_opinion_about_us = answers.tellYourOpinion;
       }
 
-      const response = await fetch('https://covid19.devtest.ge/api/create', {
+      await fetch('https://covid19.devtest.ge/api/create', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -54,7 +48,6 @@ const Thanks = () => {
           Accept: 'application/json',
         },
       });
-      console.log(response);
     };
     sendData();
     resetContext();
