@@ -3,16 +3,12 @@ import Office from 'assets/images/Office.png';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import RadioInput from 'components/RadioInput';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
 import Textarea from './components/Textarea';
 
 const CovidPolitics = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (localStorage.getItem('progress') < 3) navigate('/');
-  }, [navigate]);
 
   const { answers, addAnswer } = useContext(QuestionnaireContext);
 
@@ -48,7 +44,6 @@ const CovidPolitics = () => {
             addAnswer('numberOfDaysFromOffice', data.numberOfDaysFromOffice);
             addAnswer('whatAboutMeetingsInLive', data.whatAboutMeetingsInLive);
             addAnswer('tellYourOpinion', data.tellYourOpinion);
-            localStorage.setItem('progress', 4);
             navigate('/thanks');
           })}
           className=' space-y-10 mb-24'
@@ -152,6 +147,7 @@ const CovidPolitics = () => {
           <div className='w-5/6 flex justify-end'>
             <button
               type='submit'
+              id='covid-politics-submit'
               className=' bg-[#208298] px-6 py-3 text-white rounded-3xl'
             >
               დასრულება

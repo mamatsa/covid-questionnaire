@@ -12,6 +12,7 @@ const Start = () => {
       <Link
         className='text-3xl font-semibold text-center font-TBC relative start-text-wrapper'
         to='/questionnaire/1'
+        id='start-button'
       >
         <div className='relative z-10'>
           <p>კითხვარის</p>

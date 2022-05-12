@@ -4,15 +4,11 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import RadioInput from 'components/RadioInput';
 import Input from 'components/Input';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
 
 const CovidStatus = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (localStorage.getItem('progress') < 1) navigate('/');
-  }, [navigate]);
 
   const { answers, addAnswer } = useContext(QuestionnaireContext);
 
@@ -57,7 +53,6 @@ const CovidStatus = () => {
           addAnswer('covidSicknessDate', data.covidSicknessDate);
           addAnswer('antibodyTestDate', data.antibodyTestDate);
           addAnswer('antibodyNumber', data.antibodyNumber);
-          localStorage.setItem('progress', 2);
           navigate('/questionnaire/3');
         })}
         className=' space-y-8'
