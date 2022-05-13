@@ -1,70 +1,138 @@
-# Getting Started with Create React App
+# Redberry covid questionnaire
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is covid questionnaire for Redberry employees.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Prerequisites](#prerequisites)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Testing](#testing)
+- [Project Structure](#project-structure)
+- [Deployment](#deployment)
 
-### `npm start`
+#
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- <img src="./readme/assets/node.svg" height="17" style="position: relative; top: 2px"/> _Node JS @12.X and up_
 
-### `npm test`
+* <img src="./readme/assets/npm.png" height="16" style="position: relative; top: 4px"> _npm @6 and up_
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#
 
-### `npm run build`
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- <img src="readme/assets/react.png" height="18" style="position: relative; top: 4px" /> [React @18.1.0](https://reactjs.org) - front-end framework
+- <img src="readme/assets/tailwind.png"  height="20" style="position: relative; top: 4px" /> [TailwindCss @3.0.24](https://tailwindcss.com/) - CSS framework
+- <img src="readme/assets/router.webp" height="11" /> [React Router @6.3.0](https://reactrouter.com/) - Client side router
+- <img src="readme/assets/react-form.png" height="18" style="position: relative; top: 4px" /> [React Hook Form @7.30.0](https://react-hook-form.com/) - Form validation library
+- <img src="readme/assets/cypress.png" height="18" style="position: relative; top: 4px" /> [Cypress @9.6.1](https://www.cypress.io/) - JS testing tool
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+1\. First of all you need to clone repository from github:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```sh
+git clone https://github.com/RedberryInternship/covid19-otomamatsashvili.git
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2\. Next step requires installing all the dependencies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+or
 
-## Learn More
+```sh
+yarn
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3\. after that you can run Covid Questionnaire from terminal:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+npm start
+```
 
-### Code Splitting
+or
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+yarn run start
+```
 
-### Analyzing the Bundle Size
+#
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Testing
 
-### Making a Progressive Web App
+This application is test driven. To write e2e and integration tests `@cypress` is used. You can find all of the tests into following path: `/cypress/integration/*.spec.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+you can run cypress tests using following command:
 
-### Advanced Configuration
+```sh
+npx cypress open
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#
 
-### Deployment
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+├─── cypress  # native android project files
+│   ├─── integration  # integration and e2e tests
+│   ├─── plugins      # for loading plugins
+│   ├─── support      # library configuration files
+├─── public  # entry folder
+│   ├─── favicon.png    # tab icon
+│   ├─── index.html     # main html file
+│   ├─── manifest.json  # index.html configurations
+│   ├─── robots.txt     # search optimization
+├─── readme  # readme assets
+├─── src  # project source codes
+│   ├─── assets      # project images and fonts
+│   ├─── components  # reusable components
+│   ├───├─── input.jsx                 # input with validations
+│   ├───├─── Navigation.jsx            # main navigation
+│   ├───├─── QuestionnaireWrapper.jsx  # main questionnaire container
+│   ├───├─── RadioInput.jsx            # radio with validations
+│   ├─── pages  # application pages
+│   ├───├─── Start
+│   ├───├───├─── Start.jsx  # start page
+│   ├───├───├─── index.js   # exports page
+│   ├───├─── Identification
+│   ├───├───├─── Identification.jsx  # first page of questionnaire
+│   ├───├───├─── index.js            # exports page
+│   ├───├─── CovidStatus
+│   ├───├───├─── CovidStatus.jsx  # second page of questionnaire
+│   ├───├───├─── index.js         # exports page
+│   ├───├─── Vaccination
+│   ├───├───├─── Vaccination.jsx  # third page of questionnaire
+│   ├───├───├─── index.js         # exports page
+│   ├───├─── CovidPolitics
+│   ├───├───├─── CovidPolitics.jsx  # fourth page of questionnaire
+│   ├───├───├─── index.js           # exports page
+│   ├───├─── Thanks
+│   ├───├───├─── Thanks.jsx  # final request sending page
+│   ├───├───├─── index.js    # exports thanks page
+│   ├───├─── index.js  # export all pages
+│   ├─── state  # global state management
+│   ├───├─── questionnaire-context.js  # react context
+│   ├───├─── QuestionnaireProvider.js  # context provider component
+│   ├─── App.js   # main component with routing
+│   ├─── app.css  # main css file
+│   ├─── index.js # root JS file
+├─── .eslintrc.json      # eslint config file
+├─── .prettierrc.js      # prettier config file
+├─── package.json        # dependency manager configurations
+├─── cypress.json        # cypress config file
+├─── tailwind.config.js  # tailwind config file
+|
+```
 
-### `npm run build` fails to minify
+#
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Deployment
+
+Application is deployed on digitalocean server with `ngnix`. You can view it [here](https://covid19.otar.redberryinternship.ge/).
