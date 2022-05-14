@@ -1,6 +1,6 @@
 import QuestionnaireWrapper from 'components/QuestionnaireWrapper';
 import People from 'assets/images/People.png';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
 import Input from 'components/Input.jsx';
 import { useForm } from 'react-hook-form';
@@ -13,6 +13,7 @@ const Identification = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm({
     defaultValues: {
       firstName: answers.firstName,
@@ -21,6 +22,22 @@ const Identification = () => {
     },
     shouldUnregister: true,
   });
+
+  // Save input data on unmount
+  useEffect(() => {
+    return () => {
+      if (watch('firstName') !== answers.firstName) {
+        addAnswer('firstName', watch('firstName'));
+      }
+      console.log(1);
+      if (watch('lastName') !== answers.lastName) {
+        addAnswer('lastName', watch('lastName'));
+      }
+      if (watch('email') !== answers.email) {
+        addAnswer('email', watch('email'));
+      }
+    };
+  }, [answers, watch, addAnswer]);
 
   const emailBelongsToRedberry = (email) => {
     return email.trim().slice(-12) === '@redberry.ge';
@@ -32,10 +49,7 @@ const Identification = () => {
         action='/new_url'
         method='POST'
         id='identification-form'
-        onSubmit={handleSubmit((data) => {
-          addAnswer('firstName', data.firstName);
-          addAnswer('lastName', data.lastName);
-          addAnswer('email', data.email);
+        onSubmit={handleSubmit(() => {
           navigate('/questionnaire/2');
         })}
         className=' space-y-4'

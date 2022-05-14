@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import RadioInput from 'components/RadioInput';
 import Input from 'components/Input';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
 
 const CovidStatus = () => {
@@ -37,6 +37,26 @@ const CovidStatus = () => {
     formIsValid = true;
   }
 
+  useEffect(() => {
+    return () => {
+      if (answers.hadCovid !== watch('hadCovid')) {
+        addAnswer('hadCovid', watch('hadCovid'));
+      }
+      if (answers.hadAntibodyTest !== watch('hadAntibodyTest')) {
+        addAnswer('hadAntibodyTest', watch('hadAntibodyTest'));
+      }
+      if (answers.covidSicknessDate !== watch('covidSicknessDate')) {
+        addAnswer('covidSicknessDate', watch('covidSicknessDate'));
+      }
+      if (answers.antibodyTestDate !== watch('antibodyTestDate')) {
+        addAnswer('antibodyTestDate', watch('antibodyTestDate'));
+      }
+      if (answers.antibodyNumber !== watch('antibodyNumber')) {
+        addAnswer('antibodyNumber', watch('antibodyNumber'));
+      }
+    };
+  }, [watch, addAnswer, answers]);
+
   return (
     <QuestionnaireWrapper
       image={IllBoy}
@@ -47,12 +67,7 @@ const CovidStatus = () => {
         id='covidStatusForm'
         action=''
         required={1}
-        onSubmit={handleSubmit((data) => {
-          addAnswer('hadCovid', data.hadCovid);
-          addAnswer('hadAntibodyTest', data.hadAntibodyTest);
-          addAnswer('covidSicknessDate', data.covidSicknessDate);
-          addAnswer('antibodyTestDate', data.antibodyTestDate);
-          addAnswer('antibodyNumber', data.antibodyNumber);
+        onSubmit={handleSubmit(() => {
           navigate('/questionnaire/3');
         })}
         className=' space-y-8'

@@ -3,7 +3,7 @@ import Doctor from 'assets/images/Doctor.png';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import RadioInput from 'components/RadioInput';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
 import Suggestion from './components/Suggestion';
 
@@ -27,6 +27,20 @@ const Vaccination = () => {
     formIsValid = true;
   }
 
+  useEffect(() => {
+    return () => {
+      if (answers.hadVaccine !== watch('hadVaccine')) {
+        addAnswer('hadVaccine', watch('hadVaccine'));
+      }
+      if (answers.vaccinationStage !== watch('vaccinationStage')) {
+        addAnswer('vaccinationStage', watch('vaccinationStage'));
+      }
+      if (answers.iAmWaiting !== watch('iAmWaiting')) {
+        addAnswer('iAmWaiting', watch('iAmWaiting'));
+      }
+    };
+  }, [watch, addAnswer, answers]);
+
   return (
     <QuestionnaireWrapper
       image={Doctor}
@@ -38,9 +52,6 @@ const Vaccination = () => {
         action=''
         required={1}
         onSubmit={handleSubmit((data) => {
-          addAnswer('hadVaccine', data.hadVaccine);
-          addAnswer('vaccinationStage', data.vaccinationStage);
-          addAnswer('iAmWaiting', data.iAmWaiting);
           navigate('/questionnaire/4');
         })}
         className=' space-y-10'

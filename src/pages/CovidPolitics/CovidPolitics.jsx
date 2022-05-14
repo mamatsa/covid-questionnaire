@@ -3,7 +3,7 @@ import Office from 'assets/images/Office.png';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import RadioInput from 'components/RadioInput';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
 import Textarea from './components/Textarea';
 
@@ -16,6 +16,7 @@ const CovidPolitics = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm({
     defaultValues: {
       nonFormalMeetings: answers.nonFormalMeetings,
@@ -25,6 +26,25 @@ const CovidPolitics = () => {
     },
     shouldUnregister: true,
   });
+
+  useEffect(() => {
+    return () => {
+      if (answers.nonFormalMeetings !== watch('nonFormalMeetings')) {
+        addAnswer('nonFormalMeetings', watch('nonFormalMeetings'));
+      }
+      if (answers.numberOfDaysFromOffice !== watch('numberOfDaysFromOffice')) {
+        addAnswer('numberOfDaysFromOffice', watch('numberOfDaysFromOffice'));
+      }
+      if (
+        answers.whatAboutMeetingsInLive !== watch('whatAboutMeetingsInLive')
+      ) {
+        addAnswer('whatAboutMeetingsInLive', watch('whatAboutMeetingsInLive'));
+      }
+      if (answers.tellYourOpinion !== watch('tellYourOpinion')) {
+        addAnswer('tellYourOpinion', watch('tellYourOpinion'));
+      }
+    };
+  }, [watch, addAnswer, answers]);
 
   return (
     <QuestionnaireWrapper image={Office}>
@@ -40,10 +60,6 @@ const CovidPolitics = () => {
         <form
           id='covidPoliticsForm'
           onSubmit={handleSubmit((data) => {
-            addAnswer('nonFormalMeetings', data.nonFormalMeetings);
-            addAnswer('numberOfDaysFromOffice', data.numberOfDaysFromOffice);
-            addAnswer('whatAboutMeetingsInLive', data.whatAboutMeetingsInLive);
-            addAnswer('tellYourOpinion', data.tellYourOpinion);
             navigate('/thanks');
           })}
           className=' space-y-10 mb-24'
