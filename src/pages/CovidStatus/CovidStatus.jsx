@@ -1,5 +1,5 @@
 import QuestionnaireWrapper from 'components/QuestionnaireWrapper';
-import IllBoy from 'assets/images/IllBoy.png';
+import { IllBoy } from 'assets/images/';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import RadioInput from 'components/RadioInput';

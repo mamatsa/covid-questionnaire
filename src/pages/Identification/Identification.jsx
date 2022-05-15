@@ -1,5 +1,5 @@
 import QuestionnaireWrapper from 'components/QuestionnaireWrapper';
-import People from 'assets/images/People.png';
+import { People } from 'assets/images';
 import React, { useContext, useEffect } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
 import Input from 'components/Input.jsx';
