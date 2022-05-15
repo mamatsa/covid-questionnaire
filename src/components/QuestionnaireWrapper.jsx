@@ -1,7 +1,7 @@
 import { ReactComponent as RedberrySVG } from 'components/svgs/Redberry.svg';
 import { useLocation } from 'react-router-dom';
 import { useMemo } from 'react';
-import Navigation from './Navigation';
+import Navigation from 'components/Navigation';
 
 const QuestionnaireWrapper = (props) => {
   let location = useLocation();

@@ -1,4 +1,4 @@
-import QuestionnaireContext from './questionnaire-context';
+import QuestionnaireContext from 'state/questionnaire-context';
 import { useState } from 'react';
 
 const QuestionnaireProvider = (props) => {

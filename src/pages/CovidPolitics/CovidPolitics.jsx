@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import RadioInput from 'components/RadioInput';
 import React, { useContext, useEffect } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
-import Textarea from './components/Textarea';
+import Textarea from 'pages/CovidPolitics/components/Textarea';
 
 const CovidPolitics = () => {
   const navigate = useNavigate();

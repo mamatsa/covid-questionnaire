@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import RadioInput from 'components/RadioInput';
 import React, { useContext, useEffect } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
-import Suggestion from './components/Suggestion';
+import Suggestion from 'pages/Vaccination/components/Suggestion';
 
 const Vaccination = () => {
   const navigate = useNavigate();
