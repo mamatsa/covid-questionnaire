@@ -10,6 +10,7 @@ This is covid questionnaire for Redberry employees.
 - [Testing](#testing)
 - [Project Structure](#project-structure)
 - [Deployment](#deployment)
+- [Resources](#resources)
 
 #
 
@@ -51,7 +52,7 @@ or
 yarn
 ```
 
-3\. after that you can run Covid Questionnaire from terminal:
+3\. After that you can run Covid Questionnaire from terminal:
 
 ```sh
 npm start
@@ -69,7 +70,15 @@ yarn run start
 
 This application is test driven. To write e2e and integration tests `@cypress` is used. You can find all of the tests into following path: `/cypress/integration/*.spec.js`
 
-you can run cypress tests using following command:
+You can run cypress tests using following commands:
+
+1\. Copy cypress configuration file and if you need feel free to change it:
+
+```sh
+cp cypress.example.json cypress.json
+```
+
+2\. Open cypress:
 
 ```sh
 npx cypress open
@@ -136,3 +145,12 @@ npx cypress open
 ## Deployment
 
 Application is deployed on digitalocean server with `ngnix`. You can view it [here](https://covid19.otar.redberryinternship.ge/).
+
+#
+
+## Resources
+
+- [Application Design [Figma]](https://www.figma.com/file/56t2BI25FcD0LAIjR4GVkQ/%E1%83%99%E1%83%98%E1%83%97%E1%83%AE%E1%83%95%E1%83%90%E1%83%A0%E1%83%98)
+- [Application Design Prototype](https://www.figma.com/proto/56t2BI25FcD0LAIjR4GVkQ/%E1%83%99%E1%83%98%E1%83%97%E1%83%AE%E1%83%95%E1%83%90%E1%83%A0%E1%83%98?node-id=37%3A3&starting-point-node-id=1%3A2&scaling=contain)
+- [API Specification](https://covid19.devtest.ge/api-specs)
+- [Git Commits Structure](https://redberry.gitbook.io/resources/git-is-semantikuri-komitebi)
