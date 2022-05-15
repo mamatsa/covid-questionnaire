@@ -59,7 +59,7 @@ const CovidPolitics = () => {
         </p>
         <form
           id='covidPoliticsForm'
-          onSubmit={handleSubmit((data) => {
+          onSubmit={handleSubmit(() => {
             navigate('/thanks');
           })}
           className=' space-y-10 mb-24'

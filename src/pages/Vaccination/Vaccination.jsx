@@ -49,9 +49,8 @@ const Vaccination = () => {
     >
       <form
         id='vaccinationForm'
-        action=''
         required={1}
-        onSubmit={handleSubmit((data) => {
+        onSubmit={handleSubmit(() => {
           navigate('/questionnaire/4');
         })}
         className=' space-y-10'

@@ -65,7 +65,6 @@ const CovidStatus = () => {
     >
       <form
         id='covidStatusForm'
-        action=''
         required={1}
         onSubmit={handleSubmit(() => {
           navigate('/questionnaire/3');

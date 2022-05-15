@@ -20,7 +20,11 @@ const QuestionnaireWrapper = (props) => {
         <div className='flex'>
           <div className=' md:w-1/2'>{props.children}</div>
           <div className='hidden md:block md:w-1/2'>
-            <img src={props.image} alt='' className=' none h-min max-w-[80%]' />
+            <img
+              src={props.image}
+              alt='background'
+              className=' none h-min max-w-[80%]'
+            />
           </div>
         </div>
       </main>

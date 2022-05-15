@@ -29,7 +29,6 @@ const Identification = () => {
       if (watch('firstName') !== answers.firstName) {
         addAnswer('firstName', watch('firstName'));
       }
-      console.log(1);
       if (watch('lastName') !== answers.lastName) {
         addAnswer('lastName', watch('lastName'));
       }
@@ -46,8 +45,6 @@ const Identification = () => {
   return (
     <QuestionnaireWrapper image={People} form={'identification-form'}>
       <form
-        action='/new_url'
-        method='POST'
         id='identification-form'
         onSubmit={handleSubmit(() => {
           navigate('/questionnaire/2');
