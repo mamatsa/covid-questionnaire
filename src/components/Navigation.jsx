@@ -1,6 +1,6 @@
 import React from 'react';
-import ArrowRight from 'assets/svgs/ArrowRight.svg';
-import ArrowLeft from 'assets/svgs/ArrowLeft.svg';
+import { ReactComponent as ArrowRight } from 'components/svgs/ArrowRight.svg';
+import { ReactComponent as ArrowLeft } from 'components/svgs/ArrowLeft.svg';
 import { Link } from 'react-router-dom';
 
 const Navigation = ({ page, form, formIsValid = true }) => {
@@ -10,7 +10,7 @@ const Navigation = ({ page, form, formIsValid = true }) => {
         to={`/questionnaire/${page - 1}`}
         className={page === 1 ? 'opacity-0 pointer-events-none' : ''}
       >
-        <img src={ArrowLeft} alt='' />
+        <ArrowLeft />
       </Link>
 
       <button
@@ -21,7 +21,7 @@ const Navigation = ({ page, form, formIsValid = true }) => {
           formIsValid ? '' : ' opacity-50 pointer-events-none'
         }`}
       >
-        <img src={ArrowRight} alt='' />
+        <ArrowRight />
       </button>
     </div>
   );

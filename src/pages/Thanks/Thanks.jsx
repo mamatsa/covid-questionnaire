@@ -1,5 +1,5 @@
-import ThanksStarUp from 'assets/svgs/ThanksStarUp.svg';
-import ThanksStarDown from 'assets/svgs/ThanksStarDown.svg';
+import { ReactComponent as ThanksStarUp } from 'pages/Thanks/components/ThanksStarUp.svg';
+import { ReactComponent as ThanksStarDown } from 'pages/Thanks/components/ThanksStarDown.svg';
 import { useContext, useEffect } from 'react';
 import QuestionnaireContext from 'state/questionnaire-context';
 import { useNavigate } from 'react-router-dom';
@@ -55,19 +55,11 @@ const Thanks = () => {
 
   return (
     <main className='flex flex-col justify-center items-center bg-thanks-background h-screen'>
-      <img
-        src={ThanksStarUp}
-        alt=''
-        className=' mr-72 mb-3 animate-[moveUp_0.7s_ease-in-out]'
-      />
+      <ThanksStarUp className=' mr-72 mb-3 animate-[moveUp_0.7s_ease-in-out]' />
       <h1 className='text-white text-[64px] font-TBC tracking-widest'>
         მადლობა
       </h1>
-      <img
-        src={ThanksStarDown}
-        alt=''
-        className=' ml-72 animate-[moveDown_0.7s_ease-in-out]'
-      />
+      <ThanksStarDown className=' ml-72 animate-[moveDown_0.7s_ease-in-out]' />
     </main>
   );
 };

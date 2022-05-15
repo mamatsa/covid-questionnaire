@@ -1,4 +1,4 @@
-import RedberrySVG from 'assets/svgs/Redberry.svg';
+import { ReactComponent as RedberrySVG } from 'components/svgs/Redberry.svg';
 import { useLocation } from 'react-router-dom';
 import { useMemo } from 'react';
 import Navigation from './Navigation';
@@ -12,7 +12,7 @@ const QuestionnaireWrapper = (props) => {
       <main className='flex flex-col justify-center px-16 py-16 md:px-32 md:py-20 xl:px-48 relative'>
         <div>
           <div className=' flex justify-between'>
-            <img src={RedberrySVG} alt='Redberry' />
+            <RedberrySVG />
             <p className=' text-4xl font-Anonymous'>{page}/4</p>
           </div>
           <div className=' w-full h-0.5 bg-dark-brown my-6 mb-11'></div>
