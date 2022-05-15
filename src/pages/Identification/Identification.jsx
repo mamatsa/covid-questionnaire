@@ -63,6 +63,7 @@ const Identification = () => {
           type='text'
           required={1}
           minLength={2}
+          placeholder='სახელი'
         />
         <Input
           id='lastName'
@@ -73,6 +74,7 @@ const Identification = () => {
           type='text'
           required={1}
           minLength={2}
+          placeholder='გვარი'
         />
         <Input
           id='email'
@@ -82,6 +84,7 @@ const Identification = () => {
           errors={errors}
           type='text'
           required={1}
+          placeholder='რედბერის მეილი'
           customValidation={{
             func: emailBelongsToRedberry,
             message:

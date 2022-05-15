@@ -11,6 +11,7 @@ const Textarea = (props) => {
         rows={props.rows}
         {...props.register(props.name)}
         className='px-5 py-3 w-5/6 bg-main-background mt-4 border-dark-brown border-[1px] text-[18px] outline-none'
+        placeholder={props.placeholder}
       />
     </div>
   );

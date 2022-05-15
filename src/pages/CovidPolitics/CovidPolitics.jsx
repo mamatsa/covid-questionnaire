@@ -148,6 +148,7 @@ const CovidPolitics = () => {
             name='whatAboutMeetingsInLive'
             register={register}
             rows='4'
+            placeholder='ვფიქრობ, რომ ...'
           />
           <Textarea
             label={[
@@ -159,6 +160,7 @@ const CovidPolitics = () => {
             rows='4'
             name='tellYourOpinion'
             register={register}
+            placeholder='რედბერიში მომწონს ...'
           />
           <div className='w-5/6 flex justify-end'>
             <button
