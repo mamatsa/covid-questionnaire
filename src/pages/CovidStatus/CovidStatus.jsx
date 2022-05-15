@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import RadioInput from 'components/RadioInput';
 import Input from 'components/Input';
 import React, { useContext, useEffect } from 'react';
-import QuestionnaireContext from 'state/questionnaire-context';
+import QuestionnaireContext from 'state/QuestionnaireContext';
 
 const CovidStatus = () => {
   const navigate = useNavigate();

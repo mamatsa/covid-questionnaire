@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import RadioInput from 'components/RadioInput';
 import React, { useContext, useEffect } from 'react';
-import QuestionnaireContext from 'state/questionnaire-context';
+import QuestionnaireContext from 'state/QuestionnaireContext';
 import { Suggestion } from 'pages/Vaccination/components/';
 
 const Vaccination = () => {
