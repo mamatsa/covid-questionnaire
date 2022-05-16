@@ -6,7 +6,7 @@ import {
   Vaccination,
   CovidPolitics,
   Thanks,
-} from './pages';
+} from 'pages';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
