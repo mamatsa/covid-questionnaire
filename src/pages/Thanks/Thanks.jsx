@@ -1,5 +1,4 @@
-import { ReactComponent as ThanksStarUp } from 'pages/Thanks/components/ThanksStarUp.svg';
-import { ReactComponent as ThanksStarDown } from 'pages/Thanks/components/ThanksStarDown.svg';
+import { ThanksStarUp, ThanksStarDown } from 'pages/Thanks/components';
 import { useContext, useEffect } from 'react';
 import QuestionnaireContext from 'state/QuestionnaireContext';
 import { useNavigate } from 'react-router-dom';

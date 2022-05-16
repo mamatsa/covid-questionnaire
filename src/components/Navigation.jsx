@@ -1,6 +1,5 @@
 import React from 'react';
-import { ReactComponent as ArrowRight } from 'components/svgs/ArrowRight.svg';
-import { ReactComponent as ArrowLeft } from 'components/svgs/ArrowLeft.svg';
+import { ArrowLeft, ArrowRight } from 'components/svgs/';
 import { Link } from 'react-router-dom';
 
 const Navigation = ({ page, form, formIsValid = true }) => {

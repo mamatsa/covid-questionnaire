@@ -1,10 +1,10 @@
-import { ReactComponent as CompanyLogo } from 'pages/Start/components/Logo.svg';
+import { RedberryLogo } from 'pages/Start/components/';
 import { Link } from 'react-router-dom';
 
 const Start = () => {
   return (
     <main className='min-h-screen flex flex-col justify-center items-center  gap-24 overflow-hidden'>
-      <CompanyLogo className='animate-[shrink_0.6s_ease-in-out] relative z-20' />
+      <RedberryLogo className='animate-[shrink_0.6s_ease-in-out] relative z-20' />
       <Link
         className='text-3xl font-semibold text-center font-TBC relative start-text-wrapper'
         to='/questionnaire/1'
