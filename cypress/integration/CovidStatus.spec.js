@@ -22,7 +22,9 @@ describe('Covid status page', () => {
 
   it('User can go to the next page', () => {
     cy.visit('/questionnaire/2');
-    cy.get('#hadCovid3').click();
+    cy.get('#hadCovid1').click();
+    cy.get('#hadAntibodyTest2').click();
+    cy.get('#covidSicknessDate').type('2021-05-30');
     cy.get('#navigation-next').click();
     cy.url().should('not.include', 'questionnaire/2');
   });

@@ -25,7 +25,10 @@ const Input = (props) => {
         className='px-5 py-3 bg-main-background mt-4 border-dark-brown border-[1px] text-[18px] outline-none  md:w-5/6'
       />
       {props.errors && (
-        <p className=' text-error-red mt-1 ml-2 h-6'>
+        <p
+          className=' text-error-red mt-1 ml-2 h-6'
+          id={`${props.id}InputError`}
+        >
           {props.errors[props.name]?.message}
           {props.errors[props.name]?.type === 'validate' &&
             props.customValidation.message}

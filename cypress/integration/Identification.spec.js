@@ -12,17 +12,17 @@ describe('Identification page', () => {
       'გთხოვთ შეავსოთ ეს ველიგთხოვთ შეავსოთ ეს ველიგთხოვთ შეავსოთ ეს ველი'
     );
     cy.get('#firstName').type('n');
-    cy.get(':nth-child(1) > .text-error-red').should(
+    cy.get('#firstNameInputError').should(
       'have.text',
       'უნდა შეიყვანოთ მინიმუმ 2 სიმბოლო'
     );
     cy.get('#lastName').type('s');
-    cy.get(':nth-child(2) > .text-error-red').should(
+    cy.get('#lastNameInputError').should(
       'have.text',
       'უნდა შეიყვანოთ მინიმუმ 2 სიმბოლო'
     );
     cy.get('#email').type('o');
-    cy.get(':nth-child(3) > .text-error-red').should(
+    cy.get('#emailInputError').should(
       'have.text',
       'გთხოვთ მიუთითეთ Redberry-ის მეილი (yourname.@redberry.ge)'
     );

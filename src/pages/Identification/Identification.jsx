@@ -26,12 +26,15 @@ const Identification = () => {
   // Save input data on unmount
   useEffect(() => {
     return () => {
+      /* istanbul ignore else */
       if (watch('firstName') !== answers.firstName) {
         addAnswer('firstName', watch('firstName'));
       }
+      /* istanbul ignore else */
       if (watch('lastName') !== answers.lastName) {
         addAnswer('lastName', watch('lastName'));
       }
+      /* istanbul ignore else */
       if (watch('email') !== answers.email) {
         addAnswer('email', watch('email'));
       }
