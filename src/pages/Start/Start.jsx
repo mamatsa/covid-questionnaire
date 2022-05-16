@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 const Start = () => {
   return (
     <main className='min-h-screen flex flex-col justify-center items-center  gap-24 overflow-hidden'>
-      <CompanyLogo className='animate-[shrink_0.5s_ease-in-out]' />
+      <CompanyLogo className='animate-[shrink_0.6s_ease-in-out] relative z-20' />
       <Link
         className='text-3xl font-semibold text-center font-TBC relative start-text-wrapper'
         to='/questionnaire/1'
         id='start-button'
       >
-        <div className='relative z-10'>
+        <div className='relative z-10 animate-[drop_1s_ease-in-out]'>
           <p>კითხვარის</p>
           <p>დაწყება</p>
         </div>

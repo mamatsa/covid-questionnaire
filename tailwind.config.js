@@ -13,6 +13,11 @@ module.exports = {
           '0%': { transform: 'scale(50)' },
           '100%': { transform: 'scale(1))' },
         },
+        drop: {
+          '0%': { transform: 'translateY(-100px)', opacity: '0' },
+          '70%': { transform: 'translateY(-100px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '100%' },
+        },
         moveUp: {
           '0%': { transform: 'translate(80px, 80px)', opacity: '0' },
           '100%': { transform: 'translate(0, 0)', opacity: '100%' },
