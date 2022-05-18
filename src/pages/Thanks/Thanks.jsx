@@ -1,7 +1,7 @@
-import { ThanksStarUp, ThanksStarDown } from 'pages/Thanks/components';
 import { useContext, useEffect } from 'react';
-import QuestionnaireContext from 'state/QuestionnaireContext';
 import { useNavigate } from 'react-router-dom';
+import QuestionnaireContext from 'state/QuestionnaireContext';
+import { ThanksStarUp, ThanksStarDown } from 'pages/Thanks/components';
 
 const Thanks = () => {
   const { answers, resetContext } = useContext(QuestionnaireContext);

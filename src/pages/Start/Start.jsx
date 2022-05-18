@@ -1,5 +1,5 @@
-import { RedberryLogo } from 'pages/Start/components/';
 import { Link } from 'react-router-dom';
+import { RedberryLogo } from 'pages/Start/components/';
 
 const Start = () => {
   return (

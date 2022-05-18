@@ -1,10 +1,9 @@
-import QuestionnaireWrapper from 'components/QuestionnaireWrapper';
-import { People } from 'assets/images';
 import React, { useContext, useEffect } from 'react';
-import QuestionnaireContext from 'state/QuestionnaireContext';
-import Input from 'components/Input.jsx';
-import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import QuestionnaireContext from 'state/QuestionnaireContext';
+import { QuestionnaireWrapper, Input } from 'components/';
+import { People } from 'assets/images';
 
 const Identification = () => {
   const { answers, addAnswer } = useContext(QuestionnaireContext);

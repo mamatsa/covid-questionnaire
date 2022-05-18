@@ -1,11 +1,10 @@
-import QuestionnaireWrapper from 'components/QuestionnaireWrapper';
-import { Doctor } from 'assets/images/';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import RadioInput from 'components/RadioInput';
 import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import QuestionnaireContext from 'state/QuestionnaireContext';
+import { QuestionnaireWrapper, RadioInput } from 'components';
 import { Suggestion } from 'pages/Vaccination/components/';
+import { Doctor } from 'assets/images/';
 
 const Vaccination = () => {
   const navigate = useNavigate();

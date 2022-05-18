@@ -1,11 +1,9 @@
-import QuestionnaireWrapper from 'components/QuestionnaireWrapper';
-import { IllBoy } from 'assets/images/';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import RadioInput from 'components/RadioInput';
-import Input from 'components/Input';
 import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import QuestionnaireContext from 'state/QuestionnaireContext';
+import { QuestionnaireWrapper, Input, RadioInput } from 'components/';
+import { IllBoy } from 'assets/images/';
 
 const CovidStatus = () => {
   const navigate = useNavigate();
